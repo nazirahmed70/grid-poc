@@ -1,0 +1,12 @@
+<div *ngIf="sectionsObject" fxLayout="column" fxFill>
+  <div *ngFor="let item of sectionsObject | keyvalue">
+    <div fxLayout="row" fxLayoutAlign="space-between start start">
+      <ng-container *ngFor="let child of item.value">
+        <div [style.background]="child.bgColor" [style.height.px]="child.Level_Height" [fxFlex]="child.Section_Width"
+          class="sections-container">
+          <app-map-section [sectionInfo]="child"></app-map-section>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

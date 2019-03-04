@@ -1,0 +1,21 @@
+<ng-container *ngIf="sectionInfo.Section_Type === 'Grid'">
+  Grid
+  <!-- <select [(ngModel)]="sharedData">
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="mercedes">Mercedes</option>
+    <option value="audi">Audi</option>
+  </select> -->
+  <button *ngIf="sectionInfo.Interactive_Siblings" (click)="interact()">Interact</button>
+  <div *ngIf="sectionInfo.Cascading_Siblings">Parent :{{sharedData}}</div>
+</ng-container>
+
+<ng-container *ngIf="sectionInfo.Section_Type === 'Chart'">
+  Chart
+  <button *ngIf="sectionInfo.Interactive_Siblings" (click)="interact()">Interact</button>
+  <div *ngIf="sectionInfo.Cascading_Siblings">Parent :{{sharedData}}</div>
+</ng-container>
+
+<ng-container *ngIf="sectionInfo.Section_Type === 'Section'">
+  <app-sections [sectionsList]="sectionInfo.Child_Sections"></app-sections>
+</ng-container>
